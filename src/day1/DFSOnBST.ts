@@ -14,3 +14,8 @@ function search(curr: BinaryNode<number> | null, needle: number): boolean {
 export default function dfs(head: BinaryNode<number>, needle: number): boolean {
     return search(head, needle)
 }
+
+/* 
+RUNNING TIME
+Between 0(n) and log(n)
+*/

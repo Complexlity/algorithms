@@ -34,6 +34,7 @@ export default class DoublyLinkedList<T> {
             throw new Error("oh no")
         } else if (idx === this.length) {
             this.append(item)
+            return
         }
         else if (idx === 0) {
             this.prepend(item)

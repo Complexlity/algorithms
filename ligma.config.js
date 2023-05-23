@@ -4,13 +4,11 @@ module.exports = {
         "LRU",
         "LinearSearchList",
         "BinarySearchList",
-        "TwoCrystalBalls",
         "BubbleSort",
         "SinglyLinkedList",
         "DoublyLinkedList",
         "Queue",
         "Stack",
-        "ArrayList",
         "MazeSolver",
         "QuickSort",
         "BTPreOrder",
@@ -20,10 +18,7 @@ module.exports = {
         "CompareBinaryTrees",
         "DFSOnBST",
         "DFSGraphList",
-        "Trie",
         "BFSGraphMatrix",
-        "Map",
         "MinHeap",
     ],
-}
-
+};

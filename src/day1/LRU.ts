@@ -68,21 +68,22 @@ export default class LRU<K, V> {
     private detach(node: Node<V>) {
         if (node.prev) node.prev.next = node.next
         if (node.next) node.next.prev = node.prev
-        node.next = undefined
-        node.prev = undefined
-        if (this.head = node) {
+        if (this.head === node) {
             this.head = this.head.next
         }
-        if (this.tail = node) {
+        if (this.tail === node) {
             this.tail = this.tail.prev
         }
+        node.next = undefined
+        node.prev = undefined
     }
     private prepend(node: Node<V>) {
         if (!this.head) {
             this.head = this.tail = node
+            return
         }
-        this.head.prev = node
         node.next = this.head
+        this.head.prev = node
         this.head = node
     }
     private trimCache(): void {
@@ -95,38 +96,3 @@ export default class LRU<K, V> {
         this.length--
     }
 }
-const lru = new LRU<string, number>(3)
-// console.log(lru.get('foo'))
-// expect(lru.get("foo")).toEqual(undefined);
-lru.update("foo", 69)
-
-// console.log(lru.get('foo'))
-// expect(lru.get("foo")).toEqual(69);
-
-lru.update("bar", 420);
-// console.log(lru.get('bar'))
-
-// expect(lru.get("bar")).toEqual(420);
-
-lru.update("baz", 1337);
-// console.log(lru.get('baz'))
-// expect(lru.get("baz")).toEqual(1337);
-
-lru.update("ball", 69420);
-console.log(lru.get('ball'))
-
-// expect(lru.get("ball")).toEqual(69420);
-// console.log(lru.length)
-
-console.log(lru.get('foo'))
-
-// expect(lru.get("foo")).toEqual(undefined);
-// expect(lru.get("bar")).toEqual(420);
-// lru.update("foo", 69);
-// expect(lru.get("bar")).toEqual(420);
-// expect(lru.get("foo")).toEqual(69);
-
-// // shouldn't of been deleted, but since bar was get'd, bar was added to the
-// // front of the list, so baz became the end
-// expect(lru.get("baz")).toEqual(undefined);
-// });

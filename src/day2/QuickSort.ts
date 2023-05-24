@@ -1,4 +1,4 @@
-export default function quickSorting(arr: number[]): void {
+export default function quickSort(arr: number[]): void {
     qs(arr, 0, arr.length - 1)
 }
 

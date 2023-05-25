@@ -16,17 +16,17 @@ function merge(arr: number[], left: number[], right: number[]): void {
             arr[i + j] = left[i]
             i++
         }
-        if (right[j] < left[i]) {
+        if (left[i] > right[j]) {
             arr[i + j] = right[j]
             j++
         }
     }
-    while (j < right.length) {
-        arr[i + j] = right[j]
-        j++
-    }
     while (i < left.length) {
         arr[i + j] = left[i]
         i++
+    }
+    while (j < right.length) {
+        arr[i + j] = right[j]
+        j++
     }
 }

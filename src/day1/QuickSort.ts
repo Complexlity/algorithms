@@ -15,8 +15,6 @@ function partition(arr: number[], low: number, high: number): number {
             idx++;
             const tmp = arr[i]
             arr[i] = arr[idx]
-
-
             arr[idx] = tmp
 
         }
